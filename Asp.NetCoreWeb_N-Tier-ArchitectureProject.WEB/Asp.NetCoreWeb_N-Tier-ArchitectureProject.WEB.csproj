@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Service\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Service.csproj" />
+  </ItemGroup>
+
+</Project>
