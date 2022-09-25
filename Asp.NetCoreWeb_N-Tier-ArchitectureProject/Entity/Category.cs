@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Entity
 {
-    public abstract class BaseEntity
+    public class Category:BaseEntity
     {
-        public int Id { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public string Name { get; set; } = null!;
+
+        public ICollection<Product>? Product { get; set; }
     }
 }
