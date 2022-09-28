@@ -12,5 +12,6 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Entity
         public string Color { get; set; } = null!;
         public decimal Weight { get; set; }
         public int ProductId { get; set; }
+        public Product Product { get; set; }=null!;
     }
 }
