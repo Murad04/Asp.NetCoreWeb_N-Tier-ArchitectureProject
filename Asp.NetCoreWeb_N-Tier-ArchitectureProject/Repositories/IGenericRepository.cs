@@ -14,7 +14,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories
         IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
 
         IQueryable<T> Where(Expression<Func<T, bool>> expression);
-        IQueryable<T> AnyAsync(Expression<Func<T, bool>> expression);
+        Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
 
         Task AddAsync(T entity);
         Task AddRangeAsync(IEnumerable<T> entities);
@@ -23,6 +23,6 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories
 
         void Delete(T entity);
 
-        Task RemoveRange(IEnumerable<T> entities);
+        void RemoveRange(IEnumerable<T> entities);
     }
 }
