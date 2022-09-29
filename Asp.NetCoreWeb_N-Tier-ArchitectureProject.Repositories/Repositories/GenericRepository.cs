@@ -39,7 +39,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories
             _dbSet.Remove(entity);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll()
         {
             return _dbSet.AsNoTracking().AsQueryable();
         }

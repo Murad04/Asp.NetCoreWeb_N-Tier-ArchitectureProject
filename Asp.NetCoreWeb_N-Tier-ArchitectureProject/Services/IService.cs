@@ -10,19 +10,18 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services
     public interface IService<T> where T : class
     {
         Task<T> GetByIDAsync(int id);
-
-        IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
+        Task<IEnumerable<T>> GetAllAsync();
 
         IQueryable<T> Where(Expression<Func<T, bool>> expression);
-        IQueryable<T> AnyAsync(Expression<Func<T, bool>> expression);
+        Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
 
-        Task AddAsync(T entity);
-        Task AddRangeAsync(IEnumerable<T> entities);
+        Task<T> AddAsync(T entity);
+        Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
 
         Task UpdateAsync(T entity);
 
         Task DeleteAsync(T entity);
 
-        Task RemoveRange(IEnumerable<T> entities);
+        Task RemoveRangeAsync(IEnumerable<T> entities);
     }
 }
