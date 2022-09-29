@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Entity
+namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Models
 {
     public class Category:BaseEntity
     {

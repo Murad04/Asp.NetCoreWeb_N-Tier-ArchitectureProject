@@ -1,4 +1,4 @@
-﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Entity;
+﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
