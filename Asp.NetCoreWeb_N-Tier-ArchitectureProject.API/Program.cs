@@ -1,6 +1,8 @@
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.UnitofWorks;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +19,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUnitofWork, UnitofWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-//builder.Services.AddScoped(typeof(IService<>), typeof(Service));
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+builder.Services.AddAutoMapper(typeof(MapProfile));
 
 builder.Services.AddDbContext<AppDBContext>(x =>
 {
