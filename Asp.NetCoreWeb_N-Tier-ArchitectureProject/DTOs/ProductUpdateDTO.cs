@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.DTOs
 {
-    public class ProductDTO:BaseDTO
+    public class ProductUpdateDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
         public int Stock { get; set; }
