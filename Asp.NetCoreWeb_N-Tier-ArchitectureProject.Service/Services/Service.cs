@@ -18,6 +18,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services
 
         public Service(IGenericRepository<T> repository, IUnitofWork unitofWork)
         {
+            _repository = repository;
             _unitofWork = unitofWork;
         }
 
