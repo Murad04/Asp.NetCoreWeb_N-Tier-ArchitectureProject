@@ -16,7 +16,6 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers
                 {
                     StatusCode = response.StatusCode
                 };
-
             return new ObjectResult(response)
             {
                 StatusCode = response.StatusCode
