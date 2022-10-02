@@ -11,3 +11,11 @@
   - <a href="https://github.com/Murad04/Asp.NetCoreWeb_N-Tier-ArchitectureProject/tree/master/Asp.NetCoreWeb_N-Tier-ArchitectureProject"> Core Layer </a>
   - <a href="https://github.com/Murad04/Asp.NetCoreWeb_N-Tier-ArchitectureProject/tree/master/Asp.NetCoreWeb_N-Tier-ArchitectureProject.Caching"> Caching </a>
   
+  
+#### Technologies used:
+- EF Core
+- AutoMapper
+- Swagger
+- ASP.NET Core Web API
+- ASP.NET Core MVC
+
