@@ -10,18 +10,20 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;
-        private readonly IService<Product> _productService;
+        private readonly IService<Product> _service;
+        private readonly IProductService _productService;
 
-        public ProductsController(IMapper mapper, IService<Product> productService)
+        public ProductsController(IMapper mapper, IService<Product> service, IProductService productService)
         {
             _mapper = mapper;
+            _service = service;
             _productService = productService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var products = await _productService.GetAllAsync();
+            var products = await _service.GetAllAsync();
 
             var productsDTO = _mapper.Map<List<ProductDTO>>(products.ToList());
 
@@ -31,17 +33,23 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers
         [HttpGet("{productID}")]
         public async Task<IActionResult> GetByID(int productID)
         {
-            var product = await _productService.GetByIDAsync(productID);
+            var product = await _service.GetByIDAsync(productID);
 
             var productDTO = _mapper.Map<ProductDTO>(product);
 
             return CreateActionResult(CustomResponseDTO<ProductDTO>.Success(200, productDTO));
         }
 
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetProductswithCategory()
+        {
+            return CreateActionResult(await _productService.GetProductsWithCategory());
+        }
+
         [HttpPost]
         public async Task<IActionResult> Save(ProductDTO productDTO)
         {
-            var product = await _productService.AddAsync(_mapper.Map<Product>(productDTO));
+            var product = await _service.AddAsync(_mapper.Map<Product>(productDTO));
 
             var productsDTO = _mapper.Map<ProductDTO>(product);
 
@@ -51,7 +59,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Update(ProductUpdateDTO productDTO)
         {
-            await _productService.UpdateAsync(_mapper.Map<Product>(productDTO));
+            await _service.UpdateAsync(_mapper.Map<Product>(productDTO));
 
             return CreateActionResult(CustomResponseDTO<ProductDTO>.Success(204));
         }
@@ -59,9 +67,9 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers
         [HttpDelete("{productID}")]
         public async Task<IActionResult> Delete(int productID)
         {
-            var product = await _productService.GetByIDAsync(productID);
+            var product = await _service.GetByIDAsync(productID);
 
-            await _productService.DeleteAsync(product);
+            await _service.DeleteAsync(product);
 
             var productDTO = _mapper.Map<ProductDTO>(product);
 
