@@ -1,10 +1,13 @@
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Categories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Products;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories.Categories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories.Products;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.UnitofWorks;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Categories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Products;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
@@ -27,6 +30,10 @@ builder.Services.AddAutoMapper(typeof(MapProfile));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
 
 builder.Services.AddDbContext<AppDBContext>(x =>
 {

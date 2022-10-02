@@ -18,6 +18,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping
             CreateMap<ProductFeature, ProductFeatureDTO>().ReverseMap();
             CreateMap<ProductUpdateDTO, ProductDTO>();
             CreateMap<Product,ProductwithCategoryDTO > ();
+            CreateMap<Category, CategorywithProductsDTO>();
         }
     }
 }
