@@ -9,8 +9,10 @@ using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Categories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Products;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Validation;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -18,7 +20,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<ProductDTOValidator>());
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -33,7 +36,6 @@ builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-
 
 builder.Services.AddDbContext<AppDBContext>(x =>
 {
