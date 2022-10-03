@@ -1,3 +1,4 @@
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Filters;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Categories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Products;
@@ -13,6 +14,7 @@ using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Validation;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -20,7 +22,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<ProductDTOValidator>());
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(new ValidateFilterAttribute());
+}).AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<ProductDTOValidator>());
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
