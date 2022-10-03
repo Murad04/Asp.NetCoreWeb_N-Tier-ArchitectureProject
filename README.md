@@ -18,4 +18,5 @@
 - Swagger
 - ASP.NET Core Web API
 - ASP.NET Core MVC
+- FluentValidation
 
