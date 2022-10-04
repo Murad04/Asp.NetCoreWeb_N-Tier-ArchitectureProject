@@ -1,4 +1,5 @@
 ﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Exceptions;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
 using Microsoft.EntityFrameworkCore;
@@ -49,12 +50,15 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _repository.GetAll().ToListAsync();    
+            return await _repository.GetAll().ToListAsync();
         }
 
         public async Task<T> GetByIDAsync(int id)
         {
-            return await _repository.GetByIDAsync(id);
+            var hasProduct = await _repository.GetByIDAsync(id);
+
+            if (hasProduct is null) throw new ClientSideException($"{typeof(T).Name}({id}) not found");
+            return hasProduct;
         }
 
         public async Task RemoveRangeAsync(IEnumerable<T> entities)
@@ -71,7 +75,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services
 
         public IQueryable<T> Where(Expression<Func<T, bool>> expression)
         {
-            return _repository.Where(expression);   
+            return _repository.Where(expression);
         }
     }
 }
