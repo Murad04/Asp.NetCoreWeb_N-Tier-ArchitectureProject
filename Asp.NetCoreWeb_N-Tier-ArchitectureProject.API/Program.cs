@@ -1,4 +1,5 @@
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Filters;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Middlewares;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Categories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Products;
@@ -63,6 +64,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCustomExcpetion();
 
 app.UseAuthorization();
 
