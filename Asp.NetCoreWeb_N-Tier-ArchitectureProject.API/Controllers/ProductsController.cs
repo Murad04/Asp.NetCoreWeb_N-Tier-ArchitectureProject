@@ -1,4 +1,5 @@
-﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.DTOs;
+﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Filters;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.DTOs;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Models;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using AutoMapper;
@@ -28,6 +29,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers
             return CreateActionResult(CustomResponseDTO<List<ProductDTO>>.Success(200, productsDTO));
         }
 
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{productID}")]
         public async Task<IActionResult> GetByID(int productID)
         {
@@ -62,6 +64,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers
             return CreateActionResult(CustomResponseDTO<ProductDTO>.Success(204));
         }
 
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpDelete("{productID}")]
         public async Task<IActionResult> Delete(int productID)
         {
