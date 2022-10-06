@@ -34,7 +34,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Caching
 
             if (!_memoryCache.TryGetValue(CacheProductKey, out _))
             {
-                _memoryCache.Set(CacheProductKey, _productRepository.GetProductsWithCategory());
+                _memoryCache.Set(CacheProductKey, _productRepository.GetProductsWithCategory().Result);
             }
         }
 

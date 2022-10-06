@@ -1,4 +1,5 @@
-﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
+﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Caching;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.UnitofWorks;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping;
@@ -32,6 +33,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Modules
                     .Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces()
                     .InstancePerLifetimeScope();
 
+            builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
 
         }
     }

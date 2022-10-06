@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Products
 {
-    public class ProductService : Service<Product>, IProductService
+    public class ProductServiceWithNoCaching : Service<Product>, IProductService
     {
         private readonly IProductRepository _productRepo;
         private readonly IMapper _mapper;
 
-        public ProductService(IGenericRepository<Product> repository, IUnitofWork unitofWork, IProductRepository productRepo, IMapper mapper) : base(repository, unitofWork)
+        public ProductServiceWithNoCaching(IGenericRepository<Product> repository, IUnitofWork unitofWork, IProductRepository productRepo, IMapper mapper) : base(repository, unitofWork)
         {
             _productRepo = productRepo;
             _mapper = mapper;
