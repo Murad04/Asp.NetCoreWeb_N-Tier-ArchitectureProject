@@ -12,6 +12,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Exceptions;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Caching
 {
@@ -33,7 +34,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Caching
 
             if (!_memoryCache.TryGetValue(CacheProductKey, out _))
             {
-                _memoryCache.Set(CacheProductKey, _productRepository.GetAll().ToList());
+                _memoryCache.Set(CacheProductKey, _productRepository.GetProductsWithCategory());
             }
         }
 
@@ -67,17 +68,25 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Caching
 
         public Task<IEnumerable<Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_memoryCache.Get<IEnumerable<Product>>(CacheProductKey));
         }
 
         public Task<Product> GetByIDAsync(int id)
         {
-            throw new NotImplementedException();
+            var product = _memoryCache.Get<List<Product>>(CacheProductKey).FirstOrDefault(x => x.Id == id);
+
+            if (product == null) throw new NotFoundException($"{typeof(Product).Name}({id}) not found");
+
+            return Task.FromResult(product);
         }
 
         public Task<CustomResponseDTO<List<ProductwithCategoryDTO>>> GetProductsWithCategory()
         {
-            throw new NotImplementedException();
+            var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
+
+            var productsWithCategoryDTO = _mapper.Map<List<ProductwithCategoryDTO>>(products);
+
+            return Task.FromResult(CustomResponseDTO<List<ProductwithCategoryDTO>>.Success(200, productsWithCategoryDTO));
         }
 
         public async Task RemoveRangeAsync(IEnumerable<Product> entities)
