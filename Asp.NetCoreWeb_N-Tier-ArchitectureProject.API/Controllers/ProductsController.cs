@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers
 {
-    public class ProductsController : CustomBaseController
+    public class ProductsController : CustomBaseController  
     {
         private readonly IMapper _mapper;
         private readonly IProductService _service;
