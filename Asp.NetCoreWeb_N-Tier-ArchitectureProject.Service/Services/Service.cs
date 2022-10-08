@@ -3,12 +3,7 @@ using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Exceptions;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services
 {

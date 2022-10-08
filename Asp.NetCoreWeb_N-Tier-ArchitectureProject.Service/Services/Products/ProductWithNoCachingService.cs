@@ -5,11 +5,6 @@ using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Products;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Products
 {
@@ -28,7 +23,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Products
         {
             var data = await _productRepo.GetProductsWithCategory();
 
-            var productsDto=_mapper.Map<List<ProductwithCategoryDTO>>(data);
+            var productsDto = _mapper.Map<List<ProductwithCategoryDTO>>(data);
             return CustomResponseDTO<List<ProductwithCategoryDTO>>.Success(200, productsDto);
         }
     }

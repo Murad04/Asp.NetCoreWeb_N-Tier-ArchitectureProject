@@ -1,18 +1,13 @@
 ﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.DTOs;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Models;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Products;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Exceptions;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
 using AutoMapper;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.Extensions.Caching.Memory;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Exceptions;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Caching
 {

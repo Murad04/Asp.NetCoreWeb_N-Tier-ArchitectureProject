@@ -1,11 +1,6 @@
 ﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Configurations
 {
@@ -13,7 +8,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.HasKey(category=>category.Id);
+            builder.HasKey(category => category.Id);
             builder.Property(category => category.Id).UseIdentityColumn();
             builder.Property(category => category.Name).IsRequired().HasMaxLength(50);
 

@@ -1,11 +1,6 @@
 ﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Configurations
 {

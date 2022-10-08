@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories
 {
@@ -46,7 +41,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories
 
         public async Task<T> GetByIDAsync(int id)
         {
-            return await _dbSet.FindAsync(id); 
+            return await _dbSet.FindAsync(id);
         }
 
         public void RemoveRange(IEnumerable<T> entities)

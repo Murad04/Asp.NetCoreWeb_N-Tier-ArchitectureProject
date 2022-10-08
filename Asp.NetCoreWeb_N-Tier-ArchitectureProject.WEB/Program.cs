@@ -1,9 +1,9 @@
-using Autofac.Extensions.DependencyInjection;
-using Autofac;
-using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Modules;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
-using Microsoft.EntityFrameworkCore;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Modules;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,10 +1,5 @@
 ﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.DTOs;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Validation
 {
@@ -19,7 +14,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Validation
             RuleFor(p => p.Price).InclusiveBetween(1, int.MaxValue).WithMessage("{PropertyName} must be grater than 0");
 
             RuleFor(p => p.Stock).InclusiveBetween(1, int.MaxValue).WithMessage("{PropertyName} must be grater than 0");
-            
+
             RuleFor(p => p.CategoryId).InclusiveBetween(1, int.MaxValue).WithMessage("{PropertyName} must be grater than 0");
         }
     }

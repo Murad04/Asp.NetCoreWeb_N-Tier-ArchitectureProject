@@ -1,5 +1,4 @@
 ﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.API.Controllers

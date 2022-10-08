@@ -2,15 +2,9 @@
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Models;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Categories;
-using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories.Repositories.Categories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.UnitofWorks;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Categories
 {
@@ -31,7 +25,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Services.Categories
 
             var categoryDTO = _mapper.Map<CategorywithProductsDTO>(category);
 
-            return CustomResponseDTO<CategorywithProductsDTO>.Success(200,categoryDTO);
+            return CustomResponseDTO<CategorywithProductsDTO>.Success(200, categoryDTO);
         }
     }
 }
