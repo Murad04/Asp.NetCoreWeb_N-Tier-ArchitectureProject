@@ -1,16 +1,17 @@
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Validation;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Modules;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-
+builder.Services.AddControllersWithViews().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<ProductDTOValidator>());
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Services.AddDbContext<AppDBContext>(x =>
