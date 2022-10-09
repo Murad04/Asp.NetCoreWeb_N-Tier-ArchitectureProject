@@ -1,4 +1,4 @@
-﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Models;
+﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -24,9 +24,9 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Controllers
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(ErrorViewModel errorViewModel)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(errorViewModel);
         }
     }
 }

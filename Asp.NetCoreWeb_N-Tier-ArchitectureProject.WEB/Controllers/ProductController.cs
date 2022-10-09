@@ -1,6 +1,7 @@
 ﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.DTOs;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Models;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Services;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Filters;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -68,6 +69,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Controllers
             return View(_mapper.Map<ProductDTO>(product));
         }
 
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpPost]
         public async Task<IActionResult> Update(ProductDTO productDTO)
         {

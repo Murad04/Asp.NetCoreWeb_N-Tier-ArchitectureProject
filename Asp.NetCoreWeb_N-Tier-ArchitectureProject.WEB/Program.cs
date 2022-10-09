@@ -1,6 +1,7 @@
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Repositories;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Validation;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Filters;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Modules;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
@@ -22,6 +23,7 @@ builder.Services.AddDbContext<AppDBContext>(x =>
     });
 });
 
+builder.Services.AddScoped(typeof(NotFoundFilter<>));
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
@@ -36,6 +38,9 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
+app.UseExceptionHandler("/Home/Error");
+
 app.UseStaticFiles();
 
 app.UseRouting();
