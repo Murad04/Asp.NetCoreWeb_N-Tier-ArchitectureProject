@@ -84,5 +84,14 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Controllers
 
             return View(productDTO);
         }
+
+        public async Task<IActionResult> Delete(int productID)
+        {
+            var product = await _productService.GetByIDAsync(productID);
+            
+            await _productService.DeleteAsync(product);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
