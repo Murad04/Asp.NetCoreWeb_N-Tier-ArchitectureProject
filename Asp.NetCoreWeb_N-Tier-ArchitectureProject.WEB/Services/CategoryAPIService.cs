@@ -1,4 +1,6 @@
-﻿namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Services
+﻿using Asp.NetCoreWeb_N_Tier_ArchitectureProject.DTOs;
+
+namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Services
 {
     public class CategoryAPIService
     {
@@ -8,5 +10,13 @@
         {
             _httpClient = httpClient;
         }
+
+        public async Task<List<CategoryDTO>> GetAllAsync()
+        {
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDTO<List<CategoryDTO>>>("categories");
+
+            return response.Data;
+        }
+
     }
 }
