@@ -55,5 +55,34 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Update(int productID)
+        {
+            var product = await _productService.GetByIDAsync(productID);
+
+            var categories = await _categoryService.GetAllAsync();
+
+            var categoriesDTO = _mapper.Map<List<CategoryDTO>>(categories.ToList());
+
+            ViewBag.categories = new SelectList(categoriesDTO, "Id", "Name",product.CategoryId);
+
+            return View(_mapper.Map<ProductDTO>(product));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(ProductDTO productDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                await _productService.UpdateAsync(_mapper.Map<Product>(productDTO));
+                return RedirectToAction("Index");
+            }
+            var categories = await _categoryService.GetAllAsync();
+
+            var categoriesDTO = _mapper.Map<List<CategoryDTO>>(categories.ToList());
+
+            ViewBag.categories = new SelectList(categoriesDTO, "Id", "Name", productDTO.CategoryId);
+
+            return View(productDTO);
+        }
     }
 }
