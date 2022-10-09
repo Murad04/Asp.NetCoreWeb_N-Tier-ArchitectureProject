@@ -63,7 +63,7 @@ namespace Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Controllers
 
             var categoriesDTO = _mapper.Map<List<CategoryDTO>>(categories.ToList());
 
-            ViewBag.categories = new SelectList(categoriesDTO, "Id", "Name",product.CategoryId);
+            ViewBag.categories = new SelectList(categoriesDTO, "Id", "Name", product.CategoryId);
 
             return View(_mapper.Map<ProductDTO>(product));
         }
