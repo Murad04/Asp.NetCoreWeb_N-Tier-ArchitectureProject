@@ -3,6 +3,7 @@ using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Mapping;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.Service.Validation;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Filters;
 using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Modules;
+using Asp.NetCoreWeb_N_Tier_ArchitectureProject.WEB.Services;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FluentValidation.AspNetCore;
@@ -21,6 +22,16 @@ builder.Services.AddDbContext<AppDBContext>(x =>
     {
         options.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDBContext))?.GetName().Name);
     });
+});
+
+builder.Services.AddHttpClient<ProductAPIService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+});
+
+builder.Services.AddHttpClient<CategoryAPIService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
 });
 
 builder.Services.AddScoped(typeof(NotFoundFilter<>));
