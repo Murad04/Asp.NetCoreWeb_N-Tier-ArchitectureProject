@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Core", "Asp.NetCoreWeb_N-Tier-ArchitectureProject\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Core.csproj", "{5897B9E7-23C3-43F3-9D94-94FE898220FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Core", "Asp.NetCoreWeb_N-Tier-ArchitectureProject\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Core.csproj", "{5897B9E7-23C3-43F3-9D94-94FE898220FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Repository", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Repositories\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Repository.csproj", "{0B1CFFC3-49FC-49C2-862E-307E8E24EC6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Repository", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Repositories\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Repository.csproj", "{0B1CFFC3-49FC-49C2-862E-307E8E24EC6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Service", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Service\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Service.csproj", "{FCEE38AA-BF98-4997-A208-F69F1C7447FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Service", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Service\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Service.csproj", "{FCEE38AA-BF98-4997-A208-F69F1C7447FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.API", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.API\Asp.NetCoreWeb_N-Tier-ArchitectureProject.API.csproj", "{B4F015A2-84B6-44FB-9A7E-3228050297C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.API", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.API\Asp.NetCoreWeb_N-Tier-ArchitectureProject.API.csproj", "{B4F015A2-84B6-44FB-9A7E-3228050297C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.WEB", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.WEB\Asp.NetCoreWeb_N-Tier-ArchitectureProject.WEB.csproj", "{EA635481-41DC-4733-B01D-181EF0AA90F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.WEB", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.WEB\Asp.NetCoreWeb_N-Tier-ArchitectureProject.WEB.csproj", "{EA635481-41DC-4733-B01D-181EF0AA90F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Caching", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Caching\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Caching.csproj", "{FC1ECD44-2EAB-4A95-A890-B060EC23A939}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Caching", "Asp.NetCoreWeb_N-Tier-ArchitectureProject.Caching\Asp.NetCoreWeb_N-Tier-ArchitectureProject.Caching.csproj", "{FC1ECD44-2EAB-4A95-A890-B060EC23A939}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
